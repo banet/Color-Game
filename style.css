@@ -1,0 +1,36 @@
+body{
+    background-color:#3a3a3a;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: whitesmoke;  
+    
+}
+#container {
+    max-width: 900px;
+    display: flex;
+    flex-wrap: wrap;
+    
+    padding: 2rem;
+    margin: 0 auto;
+}
+h1 {
+    font-weight: 300;
+}
+span {
+    padding:1rem;
+    color: whitesmoke;
+}
+.square {
+    width: 30%;
+    background-color: yellowgreen;
+    padding-bottom: 30%;
+    margin: 1.5%;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
