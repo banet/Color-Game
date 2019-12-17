@@ -27,6 +27,8 @@ var colors = [
 // 5.5 Lets also Output message in html if wass Correct picked color or not!. 
 // 6. Let's add feature that when you get the right answer all the squares change color -> to match that answer
 // 7. Let s add random colors making a separat function randomChangeColors and add
+// 8. Let's add a new button -new colors
+// 8.1 -Add eventListener
 
 var colors = generateRandomColors(6); // it could be 3 or 6 colors easy or hard mode
 
@@ -44,6 +46,23 @@ var messageDisplay = document.querySelector('#messageDisplay')
 // Selecting the header to add win combination background
 
 var headerDisplay = document.querySelector('h1')
+
+// Select button New Color to reset and update new colors
+var resetButton = document.querySelector('.btn')
+
+resetButton.addEventListener('click', function() {
+    //generate a new random color from array
+    colors = generateRandomColors(6)
+    // pick a new random color from array
+    pickedColor = pickRandomColor()
+    // change colorDisplay to match picked color
+    colorDisplay.textContent = pickedColor
+    // change colors of squares
+    for(var i = 0; i<squares.length; i++) {
+        squares[i].style.backgroundColor = colors[i]
+    }
+    headerDisplay.style.backgroundColor = "#3a3a3a"
+})
 
 
 for (var i = 0; i < squares.length; i++) {
@@ -64,6 +83,7 @@ for (var i = 0; i < squares.length; i++) {
             changeColors(clickedColor);
             // Adding headers background to winnings combination
             headerDisplay.style.backgroundColor =  clickedColor
+            resetButton.textContent = 'Play again'
         }else {
             /** alert('wrong') */
             this.style.backgroundColor = '#3a3a3a'
