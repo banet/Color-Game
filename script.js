@@ -29,8 +29,8 @@ var colors = [
 // 7. Let s add random colors making a separat function randomChangeColors and add
 // 8. Let's add a new button -new colors
 // 8.1 -Add eventListener
-
-var colors = generateRandomColors(6); // it could be 3 or 6 colors easy or hard mode
+var numSquares = 6
+var colors = generateRandomColors(numSquares); // it could be 3 or 6 colors easy or hard mode
 
 // Selecting a elements colors and sqaure
 var squares = document.querySelectorAll('.square') 
@@ -49,10 +49,43 @@ var headerDisplay = document.querySelector('h1')
 
 // Select button New Color to reset and update new colors
 var resetButton = document.querySelector('.btn')
+// Selecting easy button for easy mode
+var easyBtn = document.querySelector('#easy')
+// Selecting easy button for easy mode
+var hardBtn = document.querySelector('#hard')
+
+easyBtn.addEventListener('click', function() {
+    hardBtn.classList.remove('selected')
+    easyBtn.classList.add('selected')
+    numSquares = 3
+    colors = generateRandomColors(numSquares)
+    pickedColor = pickRandomColor()
+    colorDisplay.textContent = pickedColor;
+    for(var i=0; i<squares.length; i++) {
+        if(colors[i]) {
+            squares[i].style.backgroundColor = colors[i]
+        } else {
+            squares[i].style.display = 'none';
+        }
+    }
+})
+hardBtn.addEventListener('click', function () {
+    hardBtn.classList.add('selected')
+    easyBtn.classList.remove('selected')
+    numSquares = 6
+    colors = generateRandomColors(numSquares)
+    pickedColor = pickRandomColor()
+    colorDisplay.textContent = pickedColor;
+    for (var i = 0; i < squares.length; i++) {
+            squares[i].style.backgroundColor = colors[i]
+            squares[i].style.display = 'block';
+    }
+   
+})
 
 resetButton.addEventListener('click', function() {
     //generate a new random color from array
-    colors = generateRandomColors(6)
+    colors = generateRandomColors(numSquares)
     // pick a new random color from array
     pickedColor = pickRandomColor()
     // change colorDisplay to match picked color

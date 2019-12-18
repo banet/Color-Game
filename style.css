@@ -22,8 +22,18 @@ body{
      flex-wrap: wrap;
 }
 h1 {
+    font-size: 60px;
     font-weight: 300;
     color: whitesmoke;
+}
+
+.selected {
+    background-color: lightskyblue;
+     font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    padding: .5rem 1.2rem;
+    display:block;
+    border: none;
 }
 #messageDisplay {
     padding:1rem;
